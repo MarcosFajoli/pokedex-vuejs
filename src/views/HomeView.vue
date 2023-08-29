@@ -1,8 +1,13 @@
 <script setup>
+
 import { onMounted, reactive, ref } from 'vue';
 
 onMounted(() => {
   fetch("https://pokeapi.co/api/v2/ability/?limit=20&offset=0")
+  .then(response => response.json())
+  .then(response => {
+    console.log(response)
+  })
 })
 
 </script>
