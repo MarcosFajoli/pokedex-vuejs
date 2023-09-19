@@ -21,7 +21,7 @@ onMounted(() => {
     <div class="container">
       <div class="row mt-4">
         <div class="col-sm-12 col-md-6">
-          <div class="card" style="width: 18rem;">
+          <div class="card" style="width: 32rem;">
             <img class="card-img-top" src="pikachu.png" alt="Card image cap">
             <div class="card-body">
               <h5 class="card-title">Card title</h5>
