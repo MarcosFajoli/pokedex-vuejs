@@ -1,29 +1,17 @@
-# pokedex
+# pokedex-vuejs
 
-This template should help get you started developing with Vue 3 in Vite.
+Uma Pokédex simples, feita em VueJS com Vite.
 
-## Recommended IDE Setup
+## API Consumida
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+A API consumida no projeto foi a [PokéAPI](https://pokeapi.co/), que disponibiliza dados sobre Pokémons para uso livre em projetos.
 
-## Customize configuration
+## Objetivo do Projeto
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+Aprimorar o conhecimento em desenvolvimento front-end e em VueJS, de acordo com a atividade solicitada na Universidade.
 
-## Project Setup
+## Detalhes
 
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
+_Autor:_ Marcos Fajoli de Almeida - 1953461
+_Curso:_ Superior de Tecnologia em Análise e Desenvolvimento de Sistemas
+_Matéria:_ Desenvolvimento de Aplicações para a Internet
