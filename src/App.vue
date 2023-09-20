@@ -6,10 +6,10 @@ let num = ref(0);
 
 <template>
   <nav
-    class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-body"
+    class="navbar navbar-expand-lg navbar-dark bg-primary border-bottom border-body"
   >
     <div class="container-fluid">
-      <routerLink to="/" class="navbar-brand">Pokedex</routerLink>
+      <routerLink to="/" class="navbar-brand">Pokédex</routerLink>
       <button
         class="navbar-toggler"
         type="button"
@@ -23,25 +23,30 @@ let num = ref(0);
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
-          <li class="nav-item"><routerLink to="/" class="nav-link" aria-current="page">Home</routerLink></li>
-          <li class="nav-item"><routerLink to="/about" class="nav-link">About</routerLink></li>
+          <li class="nav-item">
+            <routerLink to="/" class="nav-link" aria-current="page"
+              >Home</routerLink
+            >
+          </li>
+          <li class="nav-item">
+            <routerLink to="/about" class="nav-link">About</routerLink>
+          </li>
         </ul>
       </div>
     </div>
   </nav>
 
-<div class="main">
-  <router-view></router-view>
-</div>
+  <div class="main">
+    <router-view></router-view>
+  </div>
 
-<footer class="bg-dark text-light">
-  <div>Unimar | ADS | {{ new Date().getFullYear() }}</div>
-</footer>
-
+  <footer class="bg-primary text-light">
+    <div>Unimar | ADS | {{ new Date().getFullYear() }}</div>
+  </footer>
 </template>
 
 <style>
-footer{
+footer {
   bottom: 0;
   width: 100%;
   display: flex;

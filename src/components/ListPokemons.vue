@@ -5,8 +5,8 @@ const pokemonId = pokemon.url.split("/")[6].toString().padStart(3, "0");
 </script>
 
 <template>
-  <div class="col-4 text-capitalize">
-    <div class="card mb-1">
+  <div class="pokemon col-4 text-capitalize">
+    <div class="card mb-1 shadow">
       <img
         class="card-img-top"
         :src="
@@ -23,4 +23,19 @@ const pokemonId = pokemon.url.split("/")[6].toString().padStart(3, "0");
   </div>
 </template>
 
-<style></style>
+<style>
+.pokemon {
+  margin-bottom: 5px;
+}
+.shadow {
+  box-shadow: 0 20px rgba(0, 0, 0, 0.15);
+  text-align: center;
+}
+
+.card-title {
+  font-weight: 600;
+}
+
+.shadow img {
+}
+</style>

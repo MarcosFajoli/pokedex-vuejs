@@ -7,31 +7,121 @@ const pokemon = defineProps({
 });
 
 const pokemonSrc = pokemon.value.sprites.other.dream_world.front_default;
+const hp = pokemon.value.stats[0].base_stat;
+const pokeName =
+  pokemon.value.name[0].toUpperCase() + pokemon.value.name.slice(1);
+const statAttack = pokemon.value.stats[1].base_stat;
+const statDefense = pokemon.value.stats[2].base_stat;
+const statSpeed = pokemon.value.stats[5].base_stat;
 
 onMounted(() => {
-  document.getElementById("card-text").style.color =
-    typeColor[pokemon.value.types[0].type.name];
-});
+  const card = document.getElementById("card");
 
-console.log(pokemon.value.types[0].type.name);
+  let appendTypes = (types) => {
+    types.forEach((item) => {
+      let span = document.createElement("SPAN");
+      span.textContent = item.type.name;
+      document.querySelector(".types").appendChild(span);
+    });
+  };
+
+  let styleCard = (color) => {
+    card.style.background = `radial-gradient(circle at 50% 0%, ${color} 36%, #ffffff 36%)`;
+    card.querySelectorAll(".types span").forEach((type, key) => {
+      type.style.backgroundColor =
+        typeColor[pokemon.value.types[key].type.name];
+      console.log(key);
+    });
+  };
+
+  appendTypes(pokemon.value.types);
+  styleCard(typeColor[pokemon.value.types[0].type.name]);
+});
 </script>
 
 <template>
-  <div class="card" style="width: 28rem">
-    <img
-      class="card-img-top"
-      :src="pokemonSrc"
-      alt="Card image cap"
-      style="max-height: 30vh"
-    />
-    <div class="card-body">
-      <h5 class="card-title text-capitalize">{{ pokemon.value.name }}</h5>
-      <p class="card-text" id="card-text">
-        Some quick example text to build on the card title and make up the bulk
-        of the card's content.
-      </p>
+  <div id="card" style="width: 28rem">
+    <p class="hp">
+      <span>HP</span>
+      {{ hp }}
+    </p>
+    <img :src="pokemonSrc" />
+    <h2 class="poke-name">{{ pokeName }}</h2>
+    <div class="types"></div>
+    <div class="stats">
+      <div>
+        <h3>{{ statAttack }}</h3>
+        <p>Attack</p>
+      </div>
+      <div>
+        <h3>{{ statDefense }}</h3>
+        <p>Defense</p>
+      </div>
+      <div>
+        <h3>{{ statSpeed }}</h3>
+        <p>Speed</p>
+      </div>
     </div>
   </div>
 </template>
 
-<style></style>
+<style>
+#card {
+  position: relative;
+  width: 100%;
+  padding: 30px 20px;
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+}
+#card img {
+  display: block;
+  height: 200px;
+  max-width: 250px;
+  position: relative;
+  margin: 20px auto;
+}
+.hp {
+  width: 80px;
+  background-color: #ffffff;
+  text-align: center;
+  padding: 8px 0;
+  border-radius: 30px;
+  margin-left: auto;
+  font-weight: 400;
+}
+.poke-name {
+  text-align: center;
+  font-weight: 600;
+}
+.types {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 20px 0 40px 0;
+}
+.hp span,
+.types span {
+  font-size: 12px;
+  letter-spacing: 0.4px;
+  font-weight: 600;
+}
+.types span {
+  padding: 5px 20px;
+  border-radius: 20px;
+  color: #ffffff;
+}
+.stats {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  text-align: center;
+  background-color: #ffffff;
+  box-shadow: 0 0px 20px rgba(0, 0, 0, 0.15);
+  padding: 20px 0 10px 0;
+  border-radius: 30px;
+  margin-left: auto;
+  font-weight: 400;
+}
+.stats p {
+  color: #404060;
+}
+</style>

@@ -65,4 +65,8 @@ async function showPokemon(pokemon) {
   position: sticky;
   top: 10vh;
 }
+
+.card {
+  border: 0;
+}
 </style>
