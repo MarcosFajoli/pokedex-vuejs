@@ -72,6 +72,7 @@ onMounted(() => {
   padding: 30px 20px;
   box-shadow: 0 20px 30px rgba(0, 0, 0, 0.15);
   border-radius: 10px;
+  overflow-y: scroll;
 }
 #card img {
   display: block;

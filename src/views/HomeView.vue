@@ -3,6 +3,7 @@ import { onMounted, reactive, ref } from "vue";
 import ListPokemons from "../components/ListPokemons.vue";
 import ShowPokemon from "../components/ShowPokemon.vue";
 import defaultPokemon from "../utils/defaultPokemon.json";
+import MorePokemons from "../components/MorePokemons.vue";
 
 let pokemons = reactive(ref());
 let selectedPokemon = reactive({
@@ -48,6 +49,7 @@ async function showPokemon(pokemon) {
                 :url="pokemon.url"
                 @click="showPokemon(pokemon)"
               />
+              <MorePokemons style="margin: auto" />
             </div>
           </div>
         </div>
@@ -60,6 +62,7 @@ async function showPokemon(pokemon) {
 #pokemon {
   height: 80vh;
 }
+
 .sticky {
   position: -webkit-sticky; /* Para compatibilidade com navegadores mais antigos */
   position: sticky;

@@ -35,7 +35,4 @@ const pokemonId = pokemon.url.split("/")[6].toString().padStart(3, "0");
 .card-title {
   font-weight: 600;
 }
-
-.shadow img {
-}
 </style>
