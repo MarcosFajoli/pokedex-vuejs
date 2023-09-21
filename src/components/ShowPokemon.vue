@@ -62,10 +62,46 @@ onMounted(() => {
         <p>Speed</p>
       </div>
     </div>
+    <div class="stats">
+      <div>
+        <h3>{{ statAttack }}</h3>
+        <p>Attack</p>
+      </div>
+      <div>
+        <h3>{{ statDefense }}</h3>
+        <p>Defense</p>
+      </div>
+      <div>
+        <h3>{{ statSpeed }}</h3>
+        <p>Speed</p>
+      </div>
+    </div>
+    <div class="stats">
+      <div>
+        <h3>{{ statAttack }}</h3>
+        <p>Attack</p>
+      </div>
+      <div>
+        <h3>{{ statDefense }}</h3>
+        <p>Defense</p>
+      </div>
+      <div>
+        <h3>{{ statSpeed }}</h3>
+        <p>Speed</p>
+      </div>
+    </div>
   </div>
 </template>
 
 <style>
+*::-webkit-scrollbar {
+  width: 10px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: rgb(179, 179, 179, 0.2);
+  border-radius: 10px;
+}
 #card {
   position: relative;
   width: 100%;
