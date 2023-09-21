@@ -13,6 +13,8 @@ const pokeName =
 const statAttack = pokemon.value.stats[1].base_stat;
 const statDefense = pokemon.value.stats[2].base_stat;
 const statSpeed = pokemon.value.stats[5].base_stat;
+const weight = parseInt(pokemon.value.weight) / 10;
+const height = parseInt(pokemon.value.height) / 10;
 
 onMounted(() => {
   const card = document.getElementById("card");
@@ -32,6 +34,7 @@ onMounted(() => {
         typeColor[pokemon.value.types[key].type.name];
       console.log(key);
     });
+    card.querySelectorAll(".a span");
   };
 
   appendTypes(pokemon.value.types);
@@ -48,32 +51,14 @@ onMounted(() => {
     <img :src="pokemonSrc" />
     <h2 class="poke-name">{{ pokeName }}</h2>
     <div class="types"></div>
-    <div class="stats">
+    <div class="attributes">
       <div>
-        <h3>{{ statAttack }}</h3>
-        <p>Attack</p>
+        <h3>{{ height }}m</h3>
+        <p>Height</p>
       </div>
       <div>
-        <h3>{{ statDefense }}</h3>
-        <p>Defense</p>
-      </div>
-      <div>
-        <h3>{{ statSpeed }}</h3>
-        <p>Speed</p>
-      </div>
-    </div>
-    <div class="stats">
-      <div>
-        <h3>{{ statAttack }}</h3>
-        <p>Attack</p>
-      </div>
-      <div>
-        <h3>{{ statDefense }}</h3>
-        <p>Defense</p>
-      </div>
-      <div>
-        <h3>{{ statSpeed }}</h3>
-        <p>Speed</p>
+        <h3>{{ weight }}kg</h3>
+        <p>Weight</p>
       </div>
     </div>
     <div class="stats">
@@ -133,7 +118,7 @@ onMounted(() => {
 .types {
   display: flex;
   justify-content: space-evenly;
-  margin: 20px 0 40px 0;
+  margin: 20px 0 25px 0;
 }
 .hp span,
 .types span {
@@ -160,5 +145,18 @@ onMounted(() => {
 }
 .stats p {
   color: #404060;
+}
+.attributes {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  text-align: center;
+  color: #686868;
+  margin: 0 0 10px 0;
+}
+.attributes h3 {
+  font-size: 24px;
+  font-weight: 550;
+  margin: 0;
 }
 </style>
