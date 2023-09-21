@@ -5,19 +5,29 @@ import ShowPokemon from "../components/ShowPokemon.vue";
 import defaultPokemon from "../utils/defaultPokemon.json";
 import MorePokemons from "../components/MorePokemons.vue";
 
+const urlAPI = "https://pokeapi.co/api/v2/pokemon/?limit=18&offset=";
+
 let pokemons = reactive(ref());
 let selectedPokemon = reactive({
   value: defaultPokemon,
 });
+let offset = 0;
 
 onMounted(() => {
-  fetch("https://pokeapi.co/api/v2/pokemon/?limit=20&offset=0")
+  fetch(urlAPI + offset.toString())
     .then((response) => response.json())
     .then((response) => {
       pokemons.value = response.results;
       console.log(response);
     });
 });
+
+async function morePokemons() {
+  offset += 20;
+  const response = await fetch(urlAPI + offset.toString());
+  const results = await response.json();
+  pokemons.value.push(...results.results);
+}
 
 async function showPokemon(pokemon) {
   const response = await fetch(pokemon.url);
@@ -49,7 +59,7 @@ async function showPokemon(pokemon) {
                 :url="pokemon.url"
                 @click="showPokemon(pokemon)"
               />
-              <MorePokemons style="margin: auto" />
+              <MorePokemons style="margin: auto" @click="morePokemons()" />
             </div>
           </div>
         </div>
@@ -64,7 +74,7 @@ async function showPokemon(pokemon) {
 }
 
 .sticky {
-  position: -webkit-sticky; /* Para compatibilidade com navegadores mais antigos */
+  position: -webkit-sticky;
   position: sticky;
   top: 10vh;
 }
